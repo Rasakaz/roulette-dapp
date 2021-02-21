@@ -18,10 +18,10 @@ for(var i = 1; i <= 34; i += 3){
   boardNumbers[i + 2] = tmp;
 }
 
-function Board({winNum}) {
+function Board({winNum, setNumberIsPick, chosenNumber, setChosenNumber}) {
   
   const [squares, setSquares] = useState([]);
-  const [chosenNumber, setChosenNumber] = useState();
+
 
   useEffect(() => {
     setSquares(boardNumbers);
@@ -31,12 +31,16 @@ function Board({winNum}) {
   return (
     <div className='board-all'>
       <BoardZero  key={boardNumbers[0].number}  c={boardNumbers[0].color} num={boardNumbers[0].number} 
-      winNum={winNum} chosenNumber={chosenNumber} setChosenNumber={setChosenNumber} />
+      winNum={winNum} chosenNumber={chosenNumber} setChosenNumber={setChosenNumber} 
+      setNumberIsPick={setNumberIsPick}
+      />
       <div className="board">
         {squares.map(element => {
           return element.number !== 0 ? <BoardSquare key={element.number} 
           c={element.color} num={element.number} 
-          winNum={winNum} chosenNumber={chosenNumber} setChosenNumber={setChosenNumber}/>: null;
+          winNum={winNum} chosenNumber={chosenNumber} setChosenNumber={setChosenNumber}
+          setNumberIsPick={setNumberIsPick}
+          />: null;
         })}   
       </div>
     </div>

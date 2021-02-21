@@ -7,7 +7,7 @@ import Ethereum_logo from './images/ethreum logo.png';
 
 const Roullete = () => {
   const [winNum, setWinNumber] = useState();
-  const [numberPicked, setNumberPick] = useState();
+  const [chosenNumber, setChosenNumber] = useState();
   const [numberIsPicked, setNumberIsPick] = useState(false);
 
   useEffect(() => {
@@ -21,18 +21,23 @@ const Roullete = () => {
 
   return (
     <div className="roullete">
-      <h1>Ethereum <img src={Ethereum_logo} /> Roulette</h1>
-      <Table winNum={winNum} setNumberPick={setNumberPick} 
-        setNumberIsPick={setNumberIsPick}
+      <h1>Ethereum <img src={Ethereum_logo} id='ether-logo'/> Roulette</h1>
+      <Table winNum={winNum} setNumberIsPick={setNumberIsPick}
+        chosenNumber={chosenNumber} setChosenNumber={setChosenNumber}
       />
       <div className='roulette-game'>
-        {numberIsPicked ? <h4>Your number is: {numberPicked}</h4>: 
-          <h4>Please choose a number</h4>}
+        {numberIsPicked ? <h3>Your number is: <i style={{fontStyle: 'normal', color: 'blue'}}>{chosenNumber}</i></h3>: 
+          <h4>Please choose a number ...</h4>}
         <img src={spin_bottun} alt="spinButton" onClick={spinTheRoulette}/>
-        <h3>Last wining number: {winNum}</h3>
+        <h3 id='win-number'>Last wining number: <i style={{fontStyle: 'normal', color: 'yellow'}}>{winNum}</i></h3>
       </div>
     </div>
   );
 }
 
 export default Roullete;
+
+
+
+
+

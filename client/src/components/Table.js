@@ -1,10 +1,11 @@
 import '../App.css';
 import Board from './Board';
 
-function Table({winNum}) {
+function Table({winNum, setNumberIsPick, chosenNumber, setChosenNumber}) {
   return (
     <div className="table">
-      <Board winNum={winNum}/>
+      <Board winNum={winNum} setNumberIsPick={setNumberIsPick} 
+      chosenNumber={chosenNumber} setChosenNumber={setChosenNumber} />
     </div>
   );
 }
