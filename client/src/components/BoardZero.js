@@ -2,20 +2,21 @@ import React, {useState, useEffect} from 'react';
 import '../App.css';
 
 
-const BoardZero = ({element, winNum}) => {
+const BoardZero = ({c, num, winNum, setChosenNumber, chosenNumber}) => {
   const [color, setColor] = useState('');
   const [number, setNumber] = useState('');
   const [foreColor, setForeColor] = useState('');
 
   useEffect(() => {
-    // console.log(element);
-    setColor(element.color);
-    setNumber(element.number);
-    setForeColor(element.foreColor);
+    setColor(c);
+    setNumber(num);
+    setForeColor(winNum === num ? 'yellow': 'white');
   }, [winNum]);
 
   return (
-    <div className="boardZero" style={{backgroundColor: `${color}`, color: `${foreColor}`}}>
+    <div className="boardZero" style={{backgroundColor: `${color}`, color: `${foreColor}`}}
+      onClick={() => setChosenNumber(num)}
+    >
         <p id='number' >{number}</p>
     </div>
   );

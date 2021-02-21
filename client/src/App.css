@@ -14,26 +14,52 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .roullete img {
-  cursor: pointer;
+  transform: translateY(40px);
+  width: 80px;
+  height: 120px;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* margin-top: 40px; */
+  /* margin: 10px; */
 }
 
-.roullete img:hover, .roullete img:focus, .roullete img:active {
+.roulette-game {
+  display: flex;
+  flex-direction: column;
+  width: 40vmin;
+  height:20vmin;
+  align-items: center;
+  transform: translateY(-100px);
+}
+
+.roulette-game img {
+  cursor: pointer;
+  
+  width: 100px;
+  height: 100px;
+}
+
+.roulette-game img:hover, .roulette-game img:focus, .roulette-game img:active {
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   transform: scale(1.1);
 }
 
-.roullete img:active {
+.roulette-game img:active {
   transform: scale(0.9);
 }
 
+.roulette-game h3, h4 {
+  /* font-size:larger; */
+  padding: 20px;
+}
 
 .table {
-  /* border: 2px solid green; */
   /* background-color: #00763A; */
   width: 110vmin;
   height:  70vmin;
