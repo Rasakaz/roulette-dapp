@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import '../App.css';
 
 
-const BoardZero = ({c, num, winNum, setChosenNumber, chosenNumber}) => {
+const BoardZero = ({c, num, winNum, setNumberIsPick, setChosenNumber, chosenNumber}) => {
   const [color, setColor] = useState('');
   const [number, setNumber] = useState('');
   const [foreColor, setForeColor] = useState('');
@@ -10,13 +10,17 @@ const BoardZero = ({c, num, winNum, setChosenNumber, chosenNumber}) => {
   useEffect(() => {
     setColor(c);
     setNumber(num);
-    setForeColor(winNum === num ? 'yellow': 'white');
-  }, [winNum]);
+    setForeColor(winNum === num ? 'yellow': chosenNumber === num ? 'blue': 'white');
+  }, [winNum, chosenNumber]);
+
+  const numberClicked = () => {
+    setChosenNumber(number);
+    setNumberIsPick(true);
+  }
 
   return (
     <div className="boardZero" style={{backgroundColor: `${color}`, color: `${foreColor}`}}
-      onClick={() => setChosenNumber(num)}
-    >
+      onClick={numberClicked}>
         <p id='number' >{number}</p>
     </div>
   );

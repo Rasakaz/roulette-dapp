@@ -33,7 +33,7 @@ contract Roulette {
       recipient.transfer(msg.value);
     }
  
-    function spinTheRouelette() public{ 
+    function spinTheRouelette() public { 
       lastWinningNumber =  uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp))) % 37;
     }
 }

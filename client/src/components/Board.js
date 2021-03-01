@@ -21,8 +21,7 @@ for(var i = 1; i <= 34; i += 3){
 function Board({winNum, setNumberIsPick, chosenNumber, setChosenNumber}) {
   
   const [squares, setSquares] = useState([]);
-
-
+  
   useEffect(() => {
     setSquares(boardNumbers);
   }, []);
